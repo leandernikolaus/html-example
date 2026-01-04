@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Example</title>
+  </head>
+  <body>
+    <!-- Section 1: Articles -->
+    <section>
+      <h1>Section 1: Articles</h1>
+
+      <article>
+        <h2>Article 1: Introduction to Web Development</h2>
+        <p>
+          Web development is an exciting field that encompasses the creation and
+          maintenance of websites. It involves various aspects including web
+          design, web content development, client-side scripting, server-side
+          scripting, and network security configuration.
+        </p>
+        <p>
+          Modern web development has evolved significantly with the introduction
+          of frameworks and libraries that make it easier to build responsive
+          and interactive websites. Learning the fundamentals of HTML, CSS, and
+          JavaScript is essential for anyone looking to start a career in this
+          dynamic field.
+        </p>
+        <!-- A horizontal line -->
+        <hr />
+        <p>For learning more about HTML and the different html elements, I recommend doing the <a href="https://www.w3schools.com/html"> tutorial at W3School.</a></p>
+      </article>
+
+      <article>
+        <h2>Article 2: The Importance of Semantic HTML</h2>
+        <p>
+          <em>Semantic HTML</em> refers to the use of HTML markup to reinforce the
+          meaning of the content rather than merely defining its appearance.
+          Using semantic elements like article, section, nav, and header helps
+          search engines and assistive technologies better understand the
+          structure of your web pages.<br />
+          <!-- Using separate paragraphs is better than just adding line breaks -->
+          <br />
+          By implementing semantic HTML, developers can improve accessibility,
+          SEO rankings, and code maintainability. It creates a more meaningful
+          structure that benefits both users and developers, making websites
+          more robust and easier to navigate.
+        </p>
+      </article>
+      
+      <p>For more examples of HTML links, visit <a href="html-links.html">this page about links</a>.</p>
+    </section>
+
+    <!-- Section 2: Images -->
+    <section>
+      <h1>Section 2: Images</h1>
+      <p>One image is a link.</p>
+      <a href="https://www.uis.no" target="_blank">
+        <img
+          src="https://picsum.photos/400/300"
+          alt="Random image linking to UIS"
+          width="400"
+          height="300"
+        />
+      </a>
+
+      <img
+        src="https://picsum.photos/400/300?grayscale"
+        alt="Random grayscale image"
+        width="400"
+        height="300"
+      />
+    </section>
+
+    <!-- Section 3: List and Table -->
+    <section>
+      <h1>Section 3: Lists and Table</h1>
+
+      <h2>Nested List</h2>
+      <ul>
+        <li>
+          Programming Languages
+          <ol>
+            <li>JavaScript</li>
+            <li>Python</li>
+            <li>Java</li>
+          </ol>
+        </li>
+        <li>
+          Web Technologies
+          <ol>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>HTTP</li>
+          </ol>
+        </li>
+        <li>
+          Development Tools
+          <ul>
+            <li>VS Code</li>
+            <li>Git</li>
+            <li>Chrome DevTools</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h2>Student Information Table</h2>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>001</td>
+            <td>Alice Johnson</td>
+            <td>Web Development</td>
+            <td>A</td>
+          </tr>
+          <tr>
+            <td>002</td>
+            <td>Bob Smith</td>
+            <td>Database Systems</td>
+            <td>B+</td>
+          </tr>
+          <tr>
+            <td>003</td>
+            <td>Charlie Davis</td>
+            <td>Software Engineering</td>
+            <td>A-</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- YouTube Video -->
+    <section>
+      <h1>Embedded Video</h1>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/0mW-ZhyswAY?si=AwBf3z1MPjFYtVVI"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </section>
+  </body>
+</html>
