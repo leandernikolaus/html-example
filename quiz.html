@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .instructions {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #4CAF50;
+        }
+        .question {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .question h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .options {
+            margin: 10px 0;
+        }
+        .options label {
+            display: block;
+            padding: 8px;
+            margin: 5px 0;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: background-color 0.2s;
+        }
+        .options label:hover {
+            background-color: #f0f0f0;
+        }
+        .options input[type="radio"] {
+            margin-right: 10px;
+        }
+        .options input[type="radio"]:disabled {
+            cursor: not-allowed;
+        }
+        .options label.disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+        .feedback {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 3px;
+            display: none;
+        }
+        .feedback.correct {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .feedback.incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        #results {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .score {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML Quiz</h1>
+    
+    <div class="instructions">
+        <strong>Instructions:</strong> Answer the following questions about the html-example.html page. 
+        You can find all the answers by inspecting the source code of that page. 
+        Right-click on the page and select "View Page Source" or press Ctrl+U (Cmd+Option+U on Mac).
+        <br><br>
+        <em>Click on any answer to submit it immediately. Once answered, you cannot change your selection.</em>
+    </div>
+
+    <form id="quizForm">
+        <div class="question">
+            <h3>Question 1: How is the tab title "HTML Example" specified in the HTML document?</h3>
+            <div class="options">
+                <label><input type="radio" name="q1" value="a" onclick="checkAnswer(1, this)"> &lt;title&gt;HTML Example&lt;/title&gt;</label>
+                <label><input type="radio" name="q1" value="b" onclick="checkAnswer(1, this)"> &lt;tab&gt;HTML Example&lt;/tab&gt;</label>
+                <label><input type="radio" name="q1" value="c" onclick="checkAnswer(1, this)"> &lt;header&gt;HTML Example&lt;/header&gt;</label>
+                <label><input type="radio" name="q1" value="d" onclick="checkAnswer(1, this)"> &lt;head&gt;HTML Example&lt;/head&gt;</label>
+            </div>
+            <div class="feedback" id="feedback1"></div>
+        </div>
+
+        <div class="question">
+            <h3>Question 2: How do you create italic text in HTML?</h3>
+            <div class="options">
+                <label><input type="radio" name="q2" value="a" onclick="checkAnswer(2, this)"> &lt;strong&gt;text&lt;/strong&gt;</label>
+                <label><input type="radio" name="q2" value="b" onclick="checkAnswer(2, this)"> &lt;em&gt;text&lt;/em&gt;</label>
+                <label><input type="radio" name="q2" value="c" onclick="checkAnswer(2, this)"> &lt;italic&gt;text&lt;/italic&gt;</label>
+                <label><input type="radio" name="q2" value="d" onclick="checkAnswer(2, this)"> &lt;bold&gt;text&lt;/bold&gt;</label>
+            </div>
+            <div class="feedback" id="feedback2"></div>
+        </div>
+
+        <div class="question">
+            <h3>Question 3: What HTML tag is used to create a link?</h3>
+            <div class="options">
+                <label><input type="radio" name="q3" value="a" onclick="checkAnswer(3, this)"> &lt;link&gt;</label>
+                <label><input type="radio" name="q3" value="b" onclick="checkAnswer(3, this)"> &lt;a&gt;</label>
+                <label><input type="radio" name="q3" value="c" onclick="checkAnswer(3, this)"> &lt;href&gt;</label>
+                <label><input type="radio" name="q3" value="d" onclick="checkAnswer(3, this)"> &lt;url&gt;</label>
+            </div>
+            <div class="feedback" id="feedback3"></div>
+        </div>
+
+        <div class="question">
+            <h3>Question 4: How do you specify where a link points to?</h3>
+            <div class="options">
+                <label><input type="radio" name="q4" value="a" onclick="checkAnswer(4, this)"> url="..."</label>
+                <label><input type="radio" name="q4" value="b" onclick="checkAnswer(4, this)"> src="..."</label>
+                <label><input type="radio" name="q4" value="c" onclick="checkAnswer(4, this)"> href="..."</label>
+                <label><input type="radio" name="q4" value="d" onclick="checkAnswer(4, this)"> link="..."</label>
+            </div>
+            <div class="feedback" id="feedback4"></div>
+        </div>
+
+        <div class="question">
+            <h3>Question 5: How do you add an image in HTML?</h3>
+            <div class="options">
+                <label><input type="radio" name="q5" value="a" onclick="checkAnswer(5, this)"> &lt;image src="..."&gt;</label>
+                <label><input type="radio" name="q5" value="b" onclick="checkAnswer(5, this)"> &lt;img src="..."&gt;</label>
+                <label><input type="radio" name="q5" value="c" onclick="checkAnswer(5, this)"> &lt;picture src="..."&gt;</label>
+                <label><input type="radio" name="q5" value="d" onclick="checkAnswer(5, this)"> &lt;photo src="..."&gt;</label>
+            </div>
+            <div class="feedback" id="feedback5"></div>
+        </div>
+
+        <div class="question">
+            <h3>Question 6: How do you make an image a clickable link?</h3>
+            <div class="options">
+                <label><input type="radio" name="q6" value="a" onclick="checkAnswer(6, this)"> Put the &lt;img&gt; tag inside an &lt;a&gt; tag</label>
+                <label><input type="radio" name="q6" value="b" onclick="checkAnswer(6, this)"> Add link="..." attribute to the &lt;img&gt; tag</label>
+                <label><input type="radio" name="q6" value="c" onclick="checkAnswer(6, this)"> Put the &lt;a&gt; tag inside an &lt;img&gt; tag</label>
+                <label><input type="radio" name="q6" value="d" onclick="checkAnswer(6, this)"> Use &lt;imglink&gt; tag</label>
+            </div>
+            <div class="feedback" id="feedback6"></div>
+        </div>
+
+        <div class="question">
+            <h3>Question 7: What is the main difference between how Article 1 and Article 2 separate their text?</h3>
+            <div class="options">
+                <label><input type="radio" name="q7" value="a" onclick="checkAnswer(7, this)"> Article 1 uses separate &lt;p&gt; paragraphs, Article 2 uses &lt;br&gt; line breaks</label>
+                <label><input type="radio" name="q7" value="b" onclick="checkAnswer(7, this)"> Article 1 uses &lt;br&gt; line breaks, Article 2 uses separate &lt;p&gt; paragraphs</label>
+                <label><input type="radio" name="q7" value="c" onclick="checkAnswer(7, this)"> Both articles use the same method with separate &lt;p&gt; elements</label>
+                <label><input type="radio" name="q7" value="d" onclick="checkAnswer(7, this)"> Article 1 uses &lt;div&gt; elements, Article 2 uses &lt;span&gt; elements</label>
+            </div>
+            <div class="feedback" id="feedback7"></div>
+        </div>
+
+        <div class="question">
+            <h3>Question 8: What attribute is used to make the image link open in a new tab?</h3>
+            <div class="options">
+                <label><input type="radio" name="q8" value="a" onclick="checkAnswer(8, this)"> rel="external"</label>
+                <label><input type="radio" name="q8" value="b" onclick="checkAnswer(8, this)"> target="_blank"</label>
+                <label><input type="radio" name="q8" value="c" onclick="checkAnswer(8, this)"> newtab="true"</label>
+                <label><input type="radio" name="q8" value="d" onclick="checkAnswer(8, this)"> window="new"</label>
+            </div>
+            <div class="feedback" id="feedback8"></div>
+        </div>
+
+        <div class="question">
+            <h3>Question 9: What element is used to embed the YouTube video?</h3>
+            <div class="options">
+                <label><input type="radio" name="q9" value="a" onclick="checkAnswer(9, this)"> &lt;video&gt;</label>
+                <label><input type="radio" name="q9" value="b" onclick="checkAnswer(9, this)"> &lt;embed&gt;</label>
+                <label><input type="radio" name="q9" value="c" onclick="checkAnswer(9, this)"> &lt;iframe&gt;</label>
+                <label><input type="radio" name="q9" value="d" onclick="checkAnswer(9, this)"> &lt;object&gt;</label>
+            </div>
+            <div class="feedback" id="feedback9"></div>
+        </div>
+
+        <div class="question">
+            <h3>Question 10: How do you join/merge multiple columns in a table cell?</h3>
+            <div class="options">
+                <label><input type="radio" name="q10" value="a" onclick="checkAnswer(10, this)"> colspan="..."</label>
+                <label><input type="radio" name="q10" value="b" onclick="checkAnswer(10, this)"> merge="..."</label>
+                <label><input type="radio" name="q10" value="c" onclick="checkAnswer(10, this)"> join="..."</label>
+                <label><input type="radio" name="q10" value="d" onclick="checkAnswer(10, this)"> columns="..."</label>
+            </div>
+            <div class="feedback" id="feedback10"></div>
+        </div>
+
+        <div class="question">
+            <h3>Question 11: What is the difference between &lt;ul&gt; and &lt;ol&gt; tags?</h3>
+            <div class="options">
+                <label><input type="radio" name="q11" value="a" onclick="checkAnswer(11, this)"> &lt;ul&gt; creates unordered (bullet) lists, &lt;ol&gt; creates ordered (numbered) lists</label>
+                <label><input type="radio" name="q11" value="b" onclick="checkAnswer(11, this)"> &lt;ul&gt; creates lists, &lt;ol&gt; creates a nested list</label>
+                <label><input type="radio" name="q11" value="c" onclick="checkAnswer(11, this)"> &lt;ul&gt; is for horizontal lists, &lt;ol&gt; is for vertical lists</label>
+                <label><input type="radio" name="q11" value="d" onclick="checkAnswer(11, this)"> They are the same, just different names</label>
+            </div>
+            <div class="feedback" id="feedback11"></div>
+        </div>
+
+        <div class="question">
+            <h3>Question 12: Which tag does NOT appear in a table?</h3>
+            <div class="options">
+                <label><input type="radio" name="q12" value="a" onclick="checkAnswer(12, this)"> &lt;tr&gt;</label>
+                <label><input type="radio" name="q12" value="b" onclick="checkAnswer(12, this)"> &lt;td&gt;</label>
+                <label><input type="radio" name="q12" value="c" onclick="checkAnswer(12, this)"> &lt;ts&gt;</label>
+                <label><input type="radio" name="q12" value="d" onclick="checkAnswer(12, this)"> &lt;th&gt;</label>
+            </div>
+            <div class="feedback" id="feedback12"></div>
+        </div>
+    </form>
+
+    <div id="results">
+        <h2>Quiz Results</h2>
+        <p class="score">You scored <span id="score">0</span> out of 10!</p>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        // Correct answers
+        const answers = {
+            q1: 'a',  // <title>HTML Example</title>
+            q2: 'b',  // <em>
+            q3: 'b',  // <a>
+            q4: 'c',  // href="..."
+            q5: 'b',  // <img src="...">
+            q6: 'a',  // Put the <img> tag inside an <a> tag
+            q7: 'a',  // Article 1 uses separate <p> paragraphs, Article 2 uses <br> line breaks
+            q8: 'b',  // target="_blank"
+            q9: 'c',  // <iframe>
+            q10: 'a', // colspan="..."
+            q11: 'a', // <ul> creates unordered (bullet) lists, <ol> creates ordered (numbered) lists
+            q12: 'c'  // <ts> does NOT appear in a table (not a valid HTML tag)
+        };
+
+        let totalScore = 0;
+        let questionsAnswered = 0;
+        const totalQuestions = Object.keys(answers).length;
+        const STORAGE_KEY = 'htmlQuizAnswers';
+
+        // Load saved answers from localStorage when page loads
+        window.addEventListener('DOMContentLoaded', function() {
+            const savedAnswers = localStorage.getItem(STORAGE_KEY);
+            if (savedAnswers) {
+                const answersObj = JSON.parse(savedAnswers);
+                // Restore each saved answer
+                Object.keys(answersObj).forEach(questionName => {
+                    const savedData = answersObj[questionName];
+                    const questionNum = questionName.substring(1); // Remove 'q' prefix
+                    const radioButton = document.querySelector(`input[name="${questionName}"][value="${savedData.answer}"]`);
+                    
+                    if (radioButton) {
+                        radioButton.checked = true;
+                        // Disable all radio buttons for this question
+                        const allRadios = document.querySelectorAll(`input[name="${questionName}"]`);
+                        allRadios.forEach(radio => {
+                            radio.disabled = true;
+                            radio.parentElement.classList.add('disabled');
+                        });
+                        
+                        // Show feedback
+                        const feedbackDiv = document.getElementById('feedback' + questionNum);
+                        if (savedData.correct) {
+                            totalScore++;
+                            feedbackDiv.textContent = '✓ Correct!';
+                            feedbackDiv.className = 'feedback correct';
+                        } else {
+                            feedbackDiv.textContent = '✗ Incorrect. The correct answer can be found by inspecting the source code of html-example.html.';
+                            feedbackDiv.className = 'feedback incorrect';
+                        }
+                        feedbackDiv.style.display = 'block';
+                        questionsAnswered++;
+                    }
+                });
+                
+                // Update the results display
+                if (questionsAnswered > 0) {
+                    updateResults();
+                }
+            }
+        });
+
+        function checkAnswer(questionNum, radioButton) {
+            const questionName = 'q' + questionNum;
+            const feedbackDiv = document.getElementById('feedback' + questionNum);
+            const allRadios = document.querySelectorAll(`input[name="${questionName}"]`);
+            
+            // Disable all radio buttons for this question
+            allRadios.forEach(radio => {
+                radio.disabled = true;
+                radio.parentElement.classList.add('disabled');
+            });
+            
+            // Check if answer is correct
+            const isCorrect = radioButton.value === answers[questionName];
+            if (isCorrect) {
+                totalScore++;
+                feedbackDiv.textContent = '✓ Correct!';
+                feedbackDiv.className = 'feedback correct';
+            } else {
+                feedbackDiv.textContent = '✗ Incorrect. The correct answer can be found by inspecting the source code of html-example.html.';
+                feedbackDiv.className = 'feedback incorrect';
+            }
+            feedbackDiv.style.display = 'block';
+            
+            // Save to localStorage
+            const savedAnswers = localStorage.getItem(STORAGE_KEY);
+            const answersObj = savedAnswers ? JSON.parse(savedAnswers) : {};
+            answersObj[questionName] = {
+                answer: radioButton.value,
+                correct: isCorrect
+            };
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(answersObj));
+            
+            // Increment questions answered
+            questionsAnswered++;
+            
+            // Update score display
+            updateResults();
+        }
+
+        function updateResults() {
+            document.getElementById('score').textContent = totalScore + ' / ' + questionsAnswered;
+            
+            // Provide feedback message based on current score
+            const messageElement = document.getElementById('message');
+            
+            if (questionsAnswered === totalQuestions) {
+                messageElement.innerHTML = '<strong>Quiz Complete!</strong><br>';
+                if (totalScore === totalQuestions) {
+                    messageElement.innerHTML += '🎉 Perfect score! You really know your HTML!';
+                    messageElement.style.color = '#4CAF50';
+                } else if (totalScore >= 7) {
+                    messageElement.innerHTML += '👍 Great job! You have a good understanding of HTML.';
+                    messageElement.style.color = '#4CAF50';
+                } else if (totalScore >= 5) {
+                    messageElement.innerHTML += '📚 Not bad! Review the source code to improve your understanding.';
+                    messageElement.style.color = '#ff9800';
+                } else {
+                    messageElement.innerHTML += '💡 Keep learning! Inspect the html-example.html source code carefully.';
+                    messageElement.style.color = '#f44336';
+                }
+                messageElement.innerHTML += '<br><br><button onclick="resetQuiz()" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 14px;">Reset Quiz</button>';
+            } else {
+                messageElement.innerHTML = '<strong>Current Progress:</strong><br>' + questionsAnswered + ' of ' + totalQuestions + ' questions answered';
+                messageElement.style.color = '#333';
+            }
+        }
+
+        function resetQuiz() {
+            // Clear localStorage
+            localStorage.removeItem(STORAGE_KEY);
+            // Reload the page
+            window.location.reload();
+        }
+    </script>
+</body>
+</html>
